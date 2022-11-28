@@ -1,0 +1,31 @@
+[build-system]
+requires = ["setuptools", "setuptools-scm"]
+build-backend = "setuptools.build_meta"
+
+
+[project]
+name = "zcmds_win32"
+description = "Cross platform(ish) productivity commands written in python."
+readme = "README.md"
+requires-python = ">=3.7"
+keywords = ["zcmds", "win32", "zcmds_win32", "zcmds-win32", "cli", "command line", "command line interface"]
+license = { text = "BSD 3-Clause License" }
+classifiers = ["Programming Language :: Python :: 3"]
+dependencies = [
+]
+# Change this with the version number bump.
+version = "1.0.0"
+
+[project.scripts]
+cat = "zcmds_win32.cat:main"
+cp = "zcmds_win32.cp:main"
+du = "zcmds_win32.du:main"
+grep = "zcmds_win32.grep:main"
+home = "zcmds_win32.home:main"
+ls = "zcmds_win32.ls:main"
+mv = "zcmds_win32.mv:main"
+open = "zcmds_win32.open:main"
+rm = "zcmds_win32.rm:main"
+which = "zcmds_win32.which:main"
+git-bash = "zcmds_win32.git_bash:main"
+touch = "zcmds_win32.touch:main"
