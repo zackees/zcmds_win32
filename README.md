@@ -18,6 +18,8 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
   * touch
   * unzip
   * which
+  * nano
+  * pico
 
 
 # Install (normal)

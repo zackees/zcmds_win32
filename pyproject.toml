@@ -14,7 +14,7 @@ classifiers = ["Programming Language :: Python :: 3"]
 dependencies = [
 ]
 # Change this with the version number bump.
-version = "1.0.0"
+version = "1.0.1"
 
 [project.scripts]
 cat = "zcmds_win32.cat:main"
@@ -28,4 +28,6 @@ open = "zcmds_win32.open:main"
 rm = "zcmds_win32.rm:main"
 which = "zcmds_win32.which:main"
 git-bash = "zcmds_win32.git_bash:main"
+pico = "zcmds_win32.pico:main"
+nano = "zcmds_win32.nano:main"
 touch = "zcmds_win32.touch:main"
