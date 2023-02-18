@@ -20,6 +20,8 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
   * which
   * nano
   * pico
+  * fixvmmem
+    * If CPU consumption for vmmem high, run this command to fix it.
 
 
 # Install (normal)
@@ -34,6 +36,7 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
 
 
 # Release Notes
+  * 1.0.3: Adds `fixvmmem`
   * 1.0.2: Adds `unzip`
   * 1.0.1: Adds `pico/nano`
   * 1.0.0: Moved zcmds_win32 from zcmds
