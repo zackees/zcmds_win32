@@ -36,6 +36,7 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
 
 
 # Release Notes
+  * 1.0.6: Fixes missing `fixvmmem`
   * 1.0.5: `open` now assumes current directory if no path is given
   * 1.0.4: `fixvmmem` now runs in elevated privledges
   * 1.0.3: Adds `fixvmmem`
