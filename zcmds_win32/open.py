@@ -1,7 +1,10 @@
-from zcmds_win32._exec import os_exec
-
-CMD = r"explorer"
+import os
+import sys
 
 
 def main() -> int:
-    return os_exec(CMD)
+    cmd = "explorer"
+    if len(sys.argv) == 1:
+        cmd += " ."
+    print(cmd)
+    return os.system(cmd)
