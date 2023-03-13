@@ -12,6 +12,5 @@ def main() -> int:
         if i < 1:
             continue
         arg = sys.argv[i].replace("/", "\\")
-        print(f"arg: {sys.argv[i]} -> {arg}")
         sys.argv[i] = arg
     return os_exec(cmd)
