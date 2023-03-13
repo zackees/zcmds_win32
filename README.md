@@ -36,6 +36,7 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
 
 
 # Release Notes
+  * 1.0.9: Fixes `open` when using forward slashes
   * 1.0.8: Fixes `open` when using `open .`
   * 1.0.7: Fixes missing `fixvmmem`
   * 1.0.5: `open` now assumes current directory if no path is given
