@@ -2,7 +2,7 @@
 Fixes the VMMem issue on Windows 10.
 """
 
-from .elevated_exec import elevated_exec
+from sudo_win32.elevated_exec import elevated_exec
 
 
 def main() -> int:
