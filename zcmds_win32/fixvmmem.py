@@ -1,20 +1,20 @@
 import os
 import atexit
 import time
+import shutil
 
 def get_path(file: str) -> str:
+    os.makedirs(".tmp", exist_ok=True)
     path = os.path.join(".tmp", file)
-    return os.path.abspath(path)
+    out = os.path.abspath(path)
+    return out
 
 WRITE_BAT_FILE = get_path("write.bat")
 RUN_BAT_FILE = get_path("myrun.bat")
 PS1_FILE = get_path("run.ps1")
 DONE_TXT = get_path("done.txt")
 
-atexit.register(os.remove, WRITE_BAT_FILE, True)
-atexit.register(os.remove, RUN_BAT_FILE, True)
-atexit.register(os.remove, PS1_FILE, True)
-atexit.register(os.remove, DONE_TXT, True)
+atexit.register(lambda: shutil.rmtree(".tmp", True))
 
 WRITE_CMD = f"""
 @echo off
@@ -32,11 +32,6 @@ runas /trustlevel:0x20000 "{WRITE_BAT_FILE}"
 ENTRYPOINT_PS1 = f"""
 Start-Process -Verb runAs "{RUN_BAT_FILE}"
 """
-
-WRITE_BAT_FILE = "write.bat"
-RUN_BAT_FILE = "myrun.bat"
-PS1_FILE = "run.ps1"
-
 
 def write_files() -> None:
     with open(WRITE_BAT_FILE, encoding="utf-8", mode="w") as f:
