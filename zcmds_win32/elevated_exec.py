@@ -1,14 +1,15 @@
 """
-Executes an elevated command in windows. Very tricky.
-1. Powershell is used to execute a batch file as admin.
-2. The batch file executes the command as admin.
-3. The batch file executes a second batch file as a normal user which writes a file
-   signaling that the command has finished.
+Executes an elevated command in windows. Very tricky. Many articles have been written
+about this topic. This is the best solution I could find is to use a mix of batch programs
+and powershell:
+1. Powershell is used to execute a batch file and raises the privledges to admin level.
+2. The batch file
+  a. executes the command as admin.
+  b. echoes "done" to a file as a normal user
+3. The calling python waits until the "done" file appears then exits.
 """
 
-import atexit
 import os
-import shutil
 from tempfile import TemporaryDirectory
 import time
 
@@ -34,8 +35,6 @@ def elevated_exec(cmd: str) -> None:
         run_bat_file = get_path("myrun.bat")
         ps1_file = get_path("run.ps1")
         done_txt = get_path("done.txt")
-
-        atexit.register(lambda: shutil.rmtree(".tmp", True))
 
         write_cmd = f"""
         @echo off
