@@ -12,10 +12,10 @@ keywords = ["zcmds", "win32", "zcmds_win32", "zcmds-win32", "cli", "command line
 license = { text = "BSD 3-Clause License" }
 classifiers = ["Programming Language :: Python :: 3"]
 dependencies = [
-    "sudo_win32"
+    "sudo_win32[sudo]"
 ]
 # Change this with the version number bump.
-version = "1.0.9"
+version = "1.0.10"
 
 [project.scripts]
 cat = "zcmds_win32.cat:main"
