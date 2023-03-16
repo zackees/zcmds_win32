@@ -1,4 +1,5 @@
-  #twine upload -r testpypi dist/* --verbose
+#twine upload -r testpypi dist/* --verbose
+rm -rf build dist
 echo "Building Source and Wheel (universal) distribution…"
 python setup.py sdist bdist_wheel --universal
 echo "Uploading the package to PyPI via Twine…"
