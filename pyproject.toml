@@ -15,7 +15,7 @@ dependencies = [
     "sudo_win32[sudo]"
 ]
 # Change this with the version number bump.
-version = "1.0.11"
+version = "1.0.12"
 
 [project.scripts]
 cat = "zcmds_win32.cat:main"
