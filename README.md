@@ -22,6 +22,7 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
   * pico
   * fixvmmem
     * If CPU consumption for vmmem high, run this command to fix it.
+  * yes
 
 
 # Install (normal)
@@ -36,6 +37,7 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
 
 
 # Release Notes
+  * 1.0.13: Adds `yes`
   * 1.0.12: open tries to find a text editor.
   * 1.0.11: Adds `sudo_win32[sudo]`
   * 1.0.10: Fixes `fixvmmem` which now uses elevated_exec
