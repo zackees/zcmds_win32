@@ -37,6 +37,7 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
 
 
 # Release Notes
+  * 1.0.14: Adds `no`
   * 1.0.13: Adds `yes`
   * 1.0.12: open tries to find a text editor.
   * 1.0.11: Adds `sudo_win32[sudo]`
