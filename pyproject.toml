@@ -15,7 +15,7 @@ dependencies = [
     "sudo_win32[sudo]"
 ]
 # Change this with the version number bump.
-version = "1.0.14"
+version = "1.0.15"
 
 [project.scripts]
 cat = "zcmds_win32.cat:main"
@@ -35,4 +35,3 @@ touch = "zcmds_win32.touch:main"
 unzip = "zcmds_win32.unzip:main"
 fixvmmem = "zcmds_win32.fixvmmem:main"
 yes = "zcmds_win32.yes:main"
-no = "zcmds_win32.no:main"
