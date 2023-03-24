@@ -13,16 +13,22 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
   * git-bash
   * grep
   * home
+  * id
   * ls
+  * md5sum
   * mv
+  * nano
+  * pico
+  * ps
   * open
   * rm
   * test
+  * tee
   * touch
   * unzip
   * which
-  * nano
-  * pico
+  * wc
+  * xargs
   * fixvmmem
     * If CPU consumption for vmmem high, run this command to fix it.
   * yes
