@@ -1,11 +1,9 @@
 import os
 import unittest
-from pathlib import Path
 from zcmds_win32.unix_tool_path import install
+from zcmds_win32.settings import SRC_ROOT
 
-PROJECT_ROOT = Path(__file__).parent.parent
-
-LS_GIT_BIN_PATH = PROJECT_ROOT / "zcmds_win32" / "git-bash-bin" / "ls.exe"
+LS_GIT_BIN_PATH = SRC_ROOT / "git-bash-bin" / "ls.exe"
 
 
 class GitBinInstallTester(unittest.TestCase):
