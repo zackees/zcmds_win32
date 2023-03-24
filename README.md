@@ -1,5 +1,8 @@
 # zcmds_win32
 
+[![Linting](https://github.com/zackees/zcmds_win32/actions/workflows/lint.yml/badge.svg)](https://github.com/zackees/zcmds_win32/actions/workflows/lint.yml)
+[![Win_Tests](https://github.com/zackees/zcmds_win32/actions/workflows/push_win.yml/badge.svg)](https://github.com/zackees/zcmds_win32/actions/workflows/push_win.yml)
+
 Optional zcmds package for win32 to make it feel more like a linux distribution.
 
 # Commands
