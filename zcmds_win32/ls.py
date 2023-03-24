@@ -5,3 +5,7 @@ CMDNAME = "ls.exe"
 
 def main() -> int:
     return unix_tool_exec(CMDNAME)
+
+
+if __name__ == "__main__":
+    main()

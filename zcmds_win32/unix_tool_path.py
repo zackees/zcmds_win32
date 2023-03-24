@@ -11,9 +11,7 @@ from download import download  # type: ignore
 from zcmds_win32._exec import os_exec
 
 GIT_BIN = r"C:\Program Files\Git\usr\bin"
-GIT_BIN_TOOL_URL = (
-    "https://github.com/zackees/zcmds_win32/raw/main/assets/git-bash-bin.zip"
-)
+GIT_BIN_TOOL_URL = "https://github.com/zackees/zcmds_win32/raw/main/assets/git-bash-bin.zip"
 
 HERE = os.path.abspath(os.path.dirname(__file__))
 OUT_BIN = os.path.join(HERE, "git-bash-bin")
@@ -22,7 +20,7 @@ OUT_BIN = os.path.join(HERE, "git-bash-bin")
 def get_or_fetch_unix_tool_path(name: str) -> Optional[str]:
     """Attempts to find the given Unix tool."""
     path = shutil.which(name)
-    if path:
+    if path and os.path.basename(os.path.dirname(path)).lower() != "scripts":
         return path
     # add .exe to the name if it's not there
     if not name.lower().endswith(".exe"):
@@ -34,9 +32,7 @@ def get_or_fetch_unix_tool_path(name: str) -> Optional[str]:
     return os.path.join(OUT_BIN, name)
 
 
-def unix_tool_exec(
-    cmdname: str, inherit_params: bool = True, cwd: Optional[str] = None
-) -> int:
+def unix_tool_exec(cmdname: str, inherit_params: bool = True, cwd: Optional[str] = None) -> int:
     """Executes the given Unix tool."""
     cmd = get_or_fetch_unix_tool_path(cmdname)
     if not cmd:
