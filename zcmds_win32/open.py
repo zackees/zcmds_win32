@@ -1,6 +1,5 @@
 import os
 import shutil
-import subprocess
 import sys
 
 from zcmds_win32._exec import os_exec
@@ -26,6 +25,7 @@ def get_textpad() -> str | None:
         path = f"C:\\Program Files\\TextPad {i}\\TextPad.exe"
         if os.path.exists(path):
             return path
+    return None
 
 
 TEXT_EDITOR = get_textpad() or get_sublime()

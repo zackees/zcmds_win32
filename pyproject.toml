@@ -2,7 +2,6 @@
 requires = ["setuptools", "setuptools-scm"]
 build-backend = "setuptools.build_meta"
 
-
 [project]
 name = "zcmds_win32"
 description = "Cross platform(ish) productivity commands written in python."
@@ -12,10 +11,15 @@ keywords = ["zcmds", "win32", "zcmds_win32", "zcmds-win32", "cli", "command line
 license = { text = "BSD 3-Clause License" }
 classifiers = ["Programming Language :: Python :: 3"]
 dependencies = [
-    "sudo_win32[sudo]"
+    "sudo_win32[sudo]",
+    "download",
 ]
 # Change this with the version number bump.
 version = "1.0.15"
+
+
+[tool.pylint.'MESSAGES CONTROL']
+disable = "missing-module-docstring,missing-function-docstring"
 
 [project.scripts]
 cat = "zcmds_win32.cat:main"

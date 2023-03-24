@@ -1,7 +1,7 @@
-from zcmds_win32._exec import os_exec
+from zcmds_win32.unix_tool_path import unix_tool_exec
 
-CMD = r"C:\Program Files\Git\usr\bin\unzip.exe"
+CMDNAME = "unzip.exe"
 
 
 def main() -> int:
-    return os_exec(CMD)
+    return unix_tool_exec(CMDNAME)
