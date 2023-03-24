@@ -5,6 +5,7 @@ Resolves the unix tool, either by finding it in PATH or by downloading it.
 import os
 import shutil
 from typing import Optional
+from tempfile import TemporaryDirectory
 
 from download import download  # type: ignore
 
@@ -14,7 +15,25 @@ GIT_BIN = r"C:\Program Files\Git\usr\bin"
 GIT_BIN_TOOL_URL = "https://github.com/zackees/zcmds_win32/raw/main/assets/git-bash-bin.zip"
 
 HERE = os.path.abspath(os.path.dirname(__file__))
-OUT_BIN = os.path.join(HERE, "git-bash-bin")
+DOWNLOADED_GIT_BIN = os.path.join(HERE, "git-bash-bin")
+
+
+def install() -> None:
+    """Installs the Unix tools."""
+    with TemporaryDirectory() as tmpdir:
+        download(GIT_BIN_TOOL_URL, tmpdir, replace=True, kind="zip")
+        dst = os.path.join(HERE, "git-bash-bin")
+        os.makedirs(dst, exist_ok=True)
+        files = os.listdir(os.path.join(tmpdir, "git-bash-bin"))
+        # Sort dll's so that they are first
+        files.sort(key=lambda x: not x.endswith(".dll"))
+        files = [os.path.join(tmpdir, "git-bash-bin", f) for f in files]
+        for src in files:
+            filename = os.path.basename(src)
+            try:
+                shutil.move(src, os.path.join(dst, filename))
+            except shutil.Error:
+                pass
 
 
 def get_or_fetch_unix_tool_path(name: str) -> Optional[str]:
@@ -27,9 +46,9 @@ def get_or_fetch_unix_tool_path(name: str) -> Optional[str]:
         name += ".exe"
     if os.path.exists(os.path.join(GIT_BIN, name)):
         return os.path.join(GIT_BIN, name)
-    # else download
-    download(GIT_BIN_TOOL_URL, OUT_BIN, replace=False, kind="zip")
-    return os.path.join(OUT_BIN, name)
+    if not os.path.exists(DOWNLOADED_GIT_BIN):
+        install()
+    return os.path.join(HERE, "git-bash-bin", name)
 
 
 def unix_tool_exec(cmdname: str, inherit_params: bool = True, cwd: Optional[str] = None) -> int:
