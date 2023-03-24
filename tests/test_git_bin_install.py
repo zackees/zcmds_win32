@@ -12,7 +12,7 @@ class GitBinInstallTester(unittest.TestCase):
     def test_install(self) -> None:
         """Tests that the download works."""
         install()
-        self.assertTrue(os.path.exists(LS_GIT_BIN_PATH))
+        self.assertTrue(os.path.exists(LS_GIT_BIN_PATH), f"Could not find {LS_GIT_BIN_PATH}")
 
 
 if __name__ == "__main__":
