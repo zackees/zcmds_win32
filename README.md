@@ -13,6 +13,7 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
   * git-bash
   * grep
   * home
+  * false
   * id
   * ls
   * md5sum
@@ -22,6 +23,7 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
   * ps
   * open
   * rm
+  * true
   * test
   * tee
   * touch
