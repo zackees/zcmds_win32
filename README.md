@@ -46,6 +46,7 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
 
 
 # Release Notes
+  * 1.0.17: Minor fixes.
   * 1.0.16: Adds `xargs`, `ps`, `id`, `wc`, `md5sum`, `tee`
   * 1.0.15: fixed 'no' command, which doesn't exist.
   * 1.0.13: Adds `yes`
