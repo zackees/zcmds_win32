@@ -37,7 +37,7 @@ Optional zcmds package for win32 to make it feel more like a linux distribution.
 
 
 # Install (normal)
-  * `python -pip install zcmds`
+  * `python -m pip install zcmds`
 
 
 # Install (dev):
