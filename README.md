@@ -3,7 +3,8 @@
 [![Linting](https://github.com/zackees/zcmds_win32/actions/workflows/lint.yml/badge.svg)](https://github.com/zackees/zcmds_win32/actions/workflows/lint.yml)
 [![Win_Tests](https://github.com/zackees/zcmds_win32/actions/workflows/push_win.yml/badge.svg)](https://github.com/zackees/zcmds_win32/actions/workflows/push_win.yml)
 
-Optional zcmds package for win32 to make it feel more like a linux distribution.
+Optional zcmds package for win32 to make it feel more like a linux distribution. This is a great package to use if you want to
+use things like `tee`, `grep` and unix commands and have it work on windows.
 
 # Commands
 
