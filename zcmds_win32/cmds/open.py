@@ -28,7 +28,7 @@ def get_textpad() -> str | None:
     return None
 
 
-TEXT_EDITOR = get_textpad() or get_sublime()
+TEXT_EDITOR = get_sublime() or get_textpad()
 
 SOURCE_EXTENSIONS = [
     ".c",

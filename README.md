@@ -49,6 +49,8 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 
 # Release Notes
+
+  * 1.0.19: Change default text editor to sublime over textpad
   * 1.0.18: Adds `true` and `false` and `timeout`
   * 1.0.17: Minor fixes.
   * 1.0.16: Adds `xargs`, `ps`, `id`, `wc`, `md5sum`, `tee`
