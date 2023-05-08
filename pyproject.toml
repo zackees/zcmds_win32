@@ -15,7 +15,7 @@ dependencies = [
     "download",
 ]
 # Change this with the version number bump.
-version = "1.0.19"
+version = "1.0.20"
 
 
 [tool.pylint.'MESSAGES CONTROL']

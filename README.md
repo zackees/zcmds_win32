@@ -32,6 +32,8 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
   * which
   * wc
   * xargs
+  * uniq
+  * uname
   * fixvmmem
     * If CPU consumption for vmmem high, run this command to fix it.
   * yes
@@ -50,6 +52,7 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 # Release Notes
 
+  * 1.0.20: Adds `uniq` and `uname`
   * 1.0.19: Change default text editor to sublime over textpad
   * 1.0.18: Adds `true` and `false` and `timeout`
   * 1.0.17: Minor fixes.
