@@ -52,7 +52,7 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 # Release Notes
 
-  * 1.0.22: Yank 1.0.21
+  * 1.0.23: Yank 1.0.21/22
   * 1.0.20: Adds `uniq` and `uname`
   * 1.0.19: Change default text editor to sublime over textpad
   * 1.0.18: Adds `true` and `false` and `timeout`
