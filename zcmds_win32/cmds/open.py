@@ -2,10 +2,12 @@ import os
 import shutil
 import sys
 
+from typing import Optional
+
 from zcmds_win32._exec import os_exec
 
 
-def get_sublime() -> str | None:
+def get_sublime() -> Optional[str]:
     """Attempts to find the Sublime Text executable."""
     path = shutil.which("subl") or shutil.which("sublime_text")
     if path:
@@ -17,7 +19,7 @@ def get_sublime() -> str | None:
     return None
 
 
-def get_textpad() -> str | None:
+def get_textpad() -> Optional[str]:
     path = shutil.which("textpad")
     if path:
         return path
