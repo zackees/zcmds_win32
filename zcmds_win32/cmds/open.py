@@ -1,32 +1,39 @@
 import os
 import shutil
 import sys
-
+from dataclasses import dataclass
 from typing import Optional
 
 from zcmds_win32._exec import os_exec
 
 
-def get_sublime() -> Optional[str]:
+@dataclass
+class Program:
+    path: str
+    args: list[str]
+
+
+def get_sublime() -> Optional[Program]:
     """Attempts to find the Sublime Text executable."""
     path = shutil.which("subl") or shutil.which("sublime_text")
+    args = ["-n"]
     if path:
-        return path
+        return Program(path, args)
     for i in ["", "2", "3", "4"]:
         path = f"C:\\Program Files\\Sublime Text{i}\\sublime_text.exe"
         if os.path.exists(path):
-            return path
+            return Program(path, args)
     return None
 
 
-def get_textpad() -> Optional[str]:
+def get_textpad() -> Optional[Program]:
     path = shutil.which("textpad")
     if path:
-        return path
+        return Program(path, [])
     for i in ["", "2", "3", "4", "5", "6", "7", "8"]:
         path = f"C:\\Program Files\\TextPad {i}\\TextPad.exe"
         if os.path.exists(path):
-            return path
+            return Program(path, [])
     return None
 
 
@@ -72,7 +79,8 @@ def handle_file(file: str) -> tuple[bool, int]:
     if ext in SOURCE_EXTENSIONS:
         if TEXT_EDITOR:
             # empty quotes is for title.
-            cmd = f'start "" "{TEXT_EDITOR}" "{file}"'
+            args_statement = " ".join(TEXT_EDITOR.args)
+            cmd = f'start "" "{TEXT_EDITOR.path}" {args_statement} "{file}"'
             rtn = os.system(cmd)
             return (True, rtn)
     return (False, 0)
@@ -93,3 +101,16 @@ def main() -> int:
             if handled:
                 return ret
     return os_exec(cmd)
+
+
+def unit_test() -> None:
+    """Unit test for this module."""
+    here = os.path.dirname(__file__)
+    project_root = os.path.join(here, "..", "..")
+    os.chdir(project_root)
+    sys.argv.append("README.md")
+    main()
+
+
+if __name__ == "__main__":
+    unit_test()
