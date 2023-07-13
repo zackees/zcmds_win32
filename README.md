@@ -52,6 +52,7 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 # Release Notes
 
+  * 1.0.26: When sublime is opened via `open` it now opens in it's own window.
   * 1.0.25: Fix `open` for python 3.9
   * 1.0.24: Add `sed`
   * 1.0.23: Yank 1.0.21/22
