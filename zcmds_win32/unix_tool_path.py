@@ -10,6 +10,7 @@ from typing import Optional
 from download import download  # type: ignore
 
 from zcmds_win32._exec import os_exec
+from zcmds_win32.install_tool import install as install_tool
 
 GIT_BIN = r"C:\Program Files\Git\usr\bin"
 GIT_BIN_TOOL_URL = (
@@ -22,20 +23,7 @@ DOWNLOADED_GIT_BIN = os.path.join(HERE, "git-bash-bin")
 
 def install() -> None:
     """Installs the Unix tools."""
-    with TemporaryDirectory() as tmpdir:
-        download(GIT_BIN_TOOL_URL, tmpdir, replace=True, kind="zip")
-        dst = os.path.join(HERE, "git-bash-bin")
-        os.makedirs(dst, exist_ok=True)
-        files = os.listdir(os.path.join(tmpdir, "git-bash-bin"))
-        # Sort dll's so that they are first
-        files.sort(key=lambda x: not x.endswith(".dll"))
-        files = [os.path.join(tmpdir, "git-bash-bin", f) for f in files]
-        for src in files:
-            filename = os.path.basename(src)
-            try:
-                shutil.move(src, os.path.join(dst, filename))
-            except shutil.Error:
-                pass
+    install_tool(GIT_BIN_TOOL_URL, DOWNLOADED_GIT_BIN)
 
 
 def get_or_fetch_unix_tool_path(name: str) -> Optional[str]:

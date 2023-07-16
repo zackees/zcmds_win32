@@ -129,3 +129,4 @@ dmypy.json
 .pyre/
 
 zcmds_win32/git-bash-bin/
+zcmds_win32/tools/
