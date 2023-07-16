@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 # cd to self bash script directory
-cd $( dirname ${BASH_SOURCE[0]})
+# cd $( dirname ${BASH_SOURCE[0]})
 echo Running isort
 isort --profile black zcmds_win32
 echo Running black

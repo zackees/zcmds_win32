@@ -1,4 +1,3 @@
-
 import os
 import shutil
 from tempfile import TemporaryDirectory
@@ -19,6 +18,7 @@ def install(tool_url: str, dst_dir: str) -> None:
         shutil.rmtree(dst_dir, ignore_errors=True)
         shutil.copytree(tmpdir, dst_dir)
 
+
 def get_or_fetch_tool(toolname: str, tooldir, url: str) -> Optional[str]:
     """Attempts to find the given Unix tool."""
     path = shutil.which(toolname)
@@ -34,6 +34,7 @@ def get_or_fetch_tool(toolname: str, tooldir, url: str) -> Optional[str]:
         install(url, tooldir)
     return os.path.join(tooldir, toolname)
 
+
 def main() -> int:
     toolname = "dig.exe"
     tooldir = os.path.join(HERE, "downloads", "dig_dl.9.0.5")
@@ -42,6 +43,7 @@ def main() -> int:
     print(path)
     assert path == os.path.join(tooldir, toolname)
     print("OK")
+    return 0
 
 
 if __name__ == "__main__":

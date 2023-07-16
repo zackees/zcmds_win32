@@ -4,10 +4,7 @@ Resolves the unix tool, either by finding it in PATH or by downloading it.
 
 import os
 import shutil
-from tempfile import TemporaryDirectory
 from typing import Optional
-
-from download import download  # type: ignore
 
 from zcmds_win32._exec import os_exec
 from zcmds_win32.install_tool import install as install_tool
