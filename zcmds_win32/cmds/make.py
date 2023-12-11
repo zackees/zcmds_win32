@@ -1,3 +1,9 @@
+"""
+Installs and runs the `make` command on Windows.
+This one is a little difficult because the binary is located in bin/make.exe
+"""
+
+
 import os
 import shutil
 from tempfile import TemporaryDirectory
@@ -5,12 +11,20 @@ from typing import Optional
 
 from download import download  # type: ignore
 
+from zcmds_win32._exec import os_exec
+from zcmds_win32.install_tool import DOWNLOAD_DIR
+
+CMDNAME = "make.exe"
+URL = "https://github.com/zackees/zcmds_win32/raw/main/assets/make-3.81-bin.zip"
+DEST_DIR = os.path.join(DOWNLOAD_DIR, "make")
+
+
 HERE = os.path.abspath(os.path.dirname(__file__))
 
 DOWNLOAD_DIR = os.path.join(HERE, "downloads")
 
 
-def install(tool_url: str, dst_dir: str) -> None:
+def _install(tool_url: str, dst_dir: str) -> None:
     """Installs the Unix tools."""
     with TemporaryDirectory() as tmpdir:
         download(tool_url, tmpdir, replace=True, kind="zip")
@@ -19,31 +33,24 @@ def install(tool_url: str, dst_dir: str) -> None:
         shutil.copytree(tmpdir, dst_dir)
 
 
-def get_or_fetch_tool(toolname: str, tooldir: str, url: str) -> Optional[str]:
+def _get_or_fetch_tool(tooldir: str, url: str) -> Optional[str]:
     """Attempts to find the given Unix tool."""
-    path = shutil.which(toolname)
+    path = shutil.which(CMDNAME)
     if path and os.path.basename(os.path.dirname(path)).lower() != "scripts":
         return path
     # add .exe to the name if it's not there
-    if not toolname.lower().endswith(".exe"):
-        toolname += ".exe"
-    expected_path = os.path.join(tooldir, toolname)
+    expected_path = os.path.join(tooldir, "bin", CMDNAME)
     if os.path.exists(expected_path):
-        return os.path.join(tooldir, toolname)
+        return expected_path
     if not os.path.exists(expected_path):
-        install(url, tooldir)
-    return os.path.join(tooldir, toolname)
+        _install(url, tooldir)
+    return os.path.join(tooldir, "bin", CMDNAME)
 
 
 def main() -> int:
-    toolname = "dig.exe"
-    tooldir = os.path.join(HERE, "downloads", "dig_dl.9.0.5")
-    url = "https://github.com/zackees/zcmds_win32/raw/main/assets/dig-for-windows-9.9.5-W1.zip"
-    path = get_or_fetch_tool(toolname, tooldir, url)
-    print(path)
-    assert path == os.path.join(tooldir, toolname)
-    print("OK")
-    return 0
+    path = _get_or_fetch_tool(tooldir=DEST_DIR, url=URL)
+    assert path
+    return os_exec(cmd=path, inherit_params=True, cwd=None)
 
 
 if __name__ == "__main__":
