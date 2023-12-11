@@ -52,6 +52,7 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 # Release Notes
 
+  * 1.2.2: Adds `make` tool for building code.
   * 1.2.1: Adds tool `dig`
   * 1.0.26: When sublime is opened via `open` it now opens in it's own window.
   * 1.0.25: Fix `open` for python 3.9
