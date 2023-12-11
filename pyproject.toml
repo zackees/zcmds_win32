@@ -7,13 +7,18 @@ name = "zcmds_win32"
 description = "Cross platform(ish) productivity commands written in python."
 readme = "README.md"
 requires-python = ">=3.7"
-keywords = ["zcmds", "win32", "zcmds_win32", "zcmds-win32", "cli", "command line", "command line interface"]
+keywords = [
+    "zcmds",
+    "win32",
+    "zcmds_win32",
+    "zcmds-win32",
+    "cli",
+    "command line",
+    "command line interface",
+]
 license = { text = "BSD 3-Clause License" }
 classifiers = ["Programming Language :: Python :: 3"]
-dependencies = [
-    "sudo_win32[sudo]",
-    "download",
-]
+dependencies = ["sudo_win32[sudo]", "download"]
 # Change this with the version number bump.
 version = "1.2.1"
 
@@ -48,3 +53,4 @@ xargs = "zcmds_win32.cmds.xargs:main"
 yes = "zcmds_win32.cmds.yes:main"
 sed = "zcmds_win32.cmds.sed:main"
 dig = "zcmds_win32.cmds.dig:main"
+make = "zcmds_win32.cmds.make:main"
