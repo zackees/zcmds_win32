@@ -39,7 +39,7 @@ def get_textpad() -> Optional[Program]:
 
 TEXT_EDITOR = get_sublime() or get_textpad()
 
-SOURCE_EXTENSIONS = [
+TEXT_EXTENSIONS = [
     ".c",
     ".cpp",
     ".cxx",
@@ -72,17 +72,32 @@ SOURCE_EXTENSIONS = [
     ".ps1",
 ]
 
+IMAGE_EXTENSIONS = [
+    ".png",
+    ".jpg",
+    ".jpeg",
+    ".gif",
+    ".bmp",
+    ".ico",
+    ".webp",
+    ".svg",
+]
+
 
 def handle_file(file: str) -> tuple[bool, int]:
     """Attempts to handle the file with a specific program."""
     ext = os.path.splitext(file)[1]
-    if ext in SOURCE_EXTENSIONS:
+    if ext.lower() in TEXT_EXTENSIONS:
         if TEXT_EDITOR:
             # empty quotes is for title.
             args_statement = " ".join(TEXT_EDITOR.args)
             cmd = f'start "" "{TEXT_EDITOR.path}" {args_statement} "{file}"'
             rtn = os.system(cmd)
             return (True, rtn)
+    if ext.lower() in IMAGE_EXTENSIONS:
+        cmd = f"explorer {file}"
+        rtn = os.system(cmd)
+        return (True, rtn)
     return (False, 0)
 
 
@@ -105,10 +120,8 @@ def main() -> int:
 
 def unit_test() -> None:
     """Unit test for this module."""
-    here = os.path.dirname(__file__)
-    project_root = os.path.join(here, "..", "..")
-    os.chdir(project_root)
-    sys.argv.append("README.md")
+    target = r"C:\Users\niteris\dev\StatsDashPublic\www\src\assets\preview_image.webp"
+    sys.argv.append(target)
     main()
 
 
