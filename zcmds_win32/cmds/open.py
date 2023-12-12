@@ -95,7 +95,7 @@ def handle_file(file: str) -> tuple[bool, int]:
             rtn = os.system(cmd)
             return (True, rtn)
     if ext.lower() in IMAGE_EXTENSIONS:
-        cmd = f"explorer {file}"
+        cmd = f'explorer "{file}"'
         rtn = os.system(cmd)
         return (True, rtn)
     return (False, 0)
@@ -115,7 +115,7 @@ def main() -> int:
             handled, ret = handle_file(arg)
             if handled:
                 return ret
-    return os_exec(cmd)
+    return os_exec(f'explorer "{sys.argv[1]}"')
 
 
 def unit_test() -> None:
