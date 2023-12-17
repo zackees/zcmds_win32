@@ -130,3 +130,4 @@ dmypy.json
 
 zcmds_win32/git-bash-bin/
 zcmds_win32/tools/
+.aider*

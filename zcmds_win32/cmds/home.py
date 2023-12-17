@@ -6,4 +6,5 @@ CMD = r"cmd"
 
 
 def main() -> int:
-    return os_exec(CMD, inherit_params=False, cwd=os.path.expandvars("%HOMEPATH%"))
+    home_directory = os.path.expanduser('~')
+    return os_exec(CMD, inherit_params=False, cwd=home_directory)
