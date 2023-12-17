@@ -115,13 +115,16 @@ def main() -> int:
             handled, ret = handle_file(arg)
             if handled:
                 return ret
-    return os_exec(f'explorer "{sys.argv[1]}"')
+    arg = sys.argv[1]
+    if arg == '.':
+        return os.system("explorer .")
+    return os_exec(cmd)
 
 
 def unit_test() -> None:
     """Unit test for this module."""
-    target = r"C:\Users\niteris\dev\StatsDashPublic\www\src\assets\preview_image.webp"
-    sys.argv.append(target)
+    #target = r"C:\Users\niteris\dev\StatsDashPublic\www\src\assets\preview_image.webp"
+    sys.argv.append(".")
     main()
 
 
