@@ -116,14 +116,14 @@ def main() -> int:
             if handled:
                 return ret
     arg = sys.argv[1]
-    if arg == '.':
+    if arg == ".":
         return os.system("explorer .")
     return os_exec(cmd)
 
 
 def unit_test() -> None:
     """Unit test for this module."""
-    #target = r"C:\Users\niteris\dev\StatsDashPublic\www\src\assets\preview_image.webp"
+    # target = r"C:\Users\niteris\dev\StatsDashPublic\www\src\assets\preview_image.webp"
     sys.argv.append(".")
     main()
 
