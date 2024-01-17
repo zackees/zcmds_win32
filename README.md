@@ -52,7 +52,7 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 # Release Notes
 
-  * 1.2.6: Adds ssh related tools for windows from git-bash.
+  * 1.2.7: Adds ssh related tools for windows from git-bash.
   * 1.2.4: Fixes `open` when passing in a '.' directory.
   * 1.2.3: `home` now works in non C: drive
   * 1.2.2: Adds `make` tool for building code.
