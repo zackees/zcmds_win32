@@ -70,6 +70,12 @@ TEXT_EXTENSIONS = [
     ".cmd",
     ".sh",
     ".ps1",
+    ".pub",
+    ".pem",
+    ".key",
+    ".crt",
+    ".cer",
+    ".pfx",
 ]
 
 IMAGE_EXTENSIONS = [
