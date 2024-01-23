@@ -114,6 +114,14 @@ def handle_file(file: str) -> tuple[bool, int]:
     return (False, 0)
 
 
+def git_bash_path_to_windows(path: str) -> str:
+    if path.startswith("/"):
+        drive = path[1].upper()
+        return drive + ":" + path[2:].replace("/", "\\")
+    else:
+        return path
+
+
 def main() -> int:
     cmd = "explorer"
     if len(sys.argv) == 1:
@@ -122,7 +130,7 @@ def main() -> int:
     for i, _ in enumerate(sys.argv):
         if i < 1:
             continue
-        arg = sys.argv[i].replace("/", "\\")
+        arg = git_bash_path_to_windows(sys.argv[i])
         sys.argv[i] = arg
         if os.path.isfile(arg):
             handled, ret = handle_file(arg)
