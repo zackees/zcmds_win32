@@ -20,7 +20,7 @@ license = { text = "BSD 3-Clause License" }
 classifiers = ["Programming Language :: Python :: 3"]
 dependencies = ["sudo_win32[sudo]", "download"]
 # Change this with the version number bump.
-version = "1.2.10"
+version = "1.2.11"
 
 
 [tool.pylint.'MESSAGES CONTROL']
@@ -61,3 +61,4 @@ sshd = "zcmds_win32.cmds.sshd:main"
 ssh-keygen = "zcmds_win32.cmds.ssh_keygen:main"
 ssh-keyscan = "zcmds_win32.cmds.ssh_keyscan:main"
 ssh-pageant = "zcmds_win32.cmds.ssh_pageant:main"
+sshpass = "zcmds_win32.cmds.sshpass:main"
