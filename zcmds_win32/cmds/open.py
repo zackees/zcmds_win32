@@ -87,7 +87,14 @@ IMAGE_EXTENSIONS = [
 def handle_file(file: str) -> tuple[bool, int]:
     """Attempts to handle the file with a specific program."""
     ext = os.path.splitext(file)[1]
-    if ext.lower() in TEXT_EXTENSIONS:
+    file_uses_text_encoding = False
+    with open(file, "rb") as f:
+        try:
+            f.read().decode("utf-8")
+            file_uses_text_encoding = True
+        except UnicodeDecodeError:
+            pass
+    if ext.lower() in TEXT_EXTENSIONS or ext.lower() == "" and file_uses_text_encoding:
         if TEXT_EDITOR:
             # empty quotes is for title.
             args_statement = " ".join(TEXT_EDITOR.args)
