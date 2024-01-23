@@ -20,7 +20,7 @@ license = { text = "BSD 3-Clause License" }
 classifiers = ["Programming Language :: Python :: 3"]
 dependencies = ["sudo_win32[sudo]", "download"]
 # Change this with the version number bump.
-version = "1.2.8"
+version = "1.2.9"
 
 
 [tool.pylint.'MESSAGES CONTROL']

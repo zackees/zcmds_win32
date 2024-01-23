@@ -52,6 +52,7 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 # Release Notes
 
+  * 1.2.9: Fix `ssh-keygen` trampoline and other new ssh commands.
   * 1.2.8: Improved `open` command to now open extensionless text files
   * 1.2.7: Adds ssh related tools for windows from git-bash.
   * 1.2.4: Fixes `open` when passing in a '.' directory.
