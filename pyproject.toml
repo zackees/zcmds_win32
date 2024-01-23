@@ -20,13 +20,14 @@ license = { text = "BSD 3-Clause License" }
 classifiers = ["Programming Language :: Python :: 3"]
 dependencies = ["sudo_win32[sudo]", "download"]
 # Change this with the version number bump.
-version = "1.2.11"
+version = "1.2.12"
 
 
 [tool.pylint.'MESSAGES CONTROL']
 disable = "missing-module-docstring,missing-function-docstring"
 
 [project.scripts]
+zcmds_win32 = "zcmds_win32.cmds.zcmds_win32:main"
 cat = "zcmds_win32.cmds.cat:main"
 cp = "zcmds_win32.cmds.cp:main"
 du = "zcmds_win32.cmds.du:main"
