@@ -51,7 +51,7 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 
 # Release Notes
-
+  * 1.2.13: Adds `bash` from git-bash and `dirname`.
   * 1.2.12: `sshpass` and now `zcmds_win32 --install` to force re-download of unix tools.
   * 1.2.10: `open` now handles git paths
   * 1.2.9: Fix `ssh-keygen` trampoline and other new ssh commands.
