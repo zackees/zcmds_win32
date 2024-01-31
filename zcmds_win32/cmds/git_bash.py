@@ -1,17 +1,7 @@
-# pylint: skip-file
-# mypy: ignore-errors
+from zcmds_win32.unix_tool_path import unix_tool_exec
 
-import subprocess
+CMDNAME = "bash.exe"
 
 
 def main() -> int:
-    subprocess.Popen(
-        r'"C:\Program Files\Git\git-bash.exe"',
-        shell=True,
-        start_new_session=True,
-        creationflags=subprocess.CREATE_NEW_CONSOLE,  # pylint: disable
-    )
-
-
-if __name__ == "__main__":
-    main()
+    return unix_tool_exec(CMDNAME)
