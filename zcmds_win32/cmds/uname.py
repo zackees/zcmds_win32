@@ -1,6 +1,6 @@
 from zcmds_win32.unix_tool_path import unix_tool_exec
 
-CMDNAME = "uniq.exe"
+CMDNAME = "uname.exe"
 
 
 def main() -> int:
