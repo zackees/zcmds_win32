@@ -76,7 +76,7 @@ TEXT_EXTENSIONS = [
     ".crt",
     ".cer",
     ".pfx",
-    ".toml"
+    ".toml",
 ]
 
 IMAGE_EXTENSIONS = [

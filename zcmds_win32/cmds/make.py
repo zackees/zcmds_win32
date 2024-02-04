@@ -3,7 +3,6 @@ Installs and runs the `make` command on Windows.
 This one is a little difficult because the binary is located in bin/make.exe
 """
 
-
 import os
 import shutil
 from tempfile import TemporaryDirectory
