@@ -51,6 +51,7 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 
 # Release Notes
+  * 1.2.15: Adds `realpath` and `uname` to git-bash utils.
   * 1.2.14: Fixes `bash` from missing file.
   * 1.2.13: Adds `bash` from git-bash and `dirname`.
   * 1.2.12: `sshpass` and now `zcmds_win32 --install` to force re-download of unix tools.
