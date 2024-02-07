@@ -132,6 +132,7 @@ def main() -> int:
         if i < 1:
             continue
         arg = git_bash_path_to_windows(sys.argv[i])
+        arg = arg.replace("\\\\", "\\")
         sys.argv[i] = arg
         if os.path.isfile(arg):
             handled, ret = handle_file(arg)
