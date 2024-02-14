@@ -54,14 +54,22 @@ def get_or_fetch_unix_tool_path(name: str) -> Optional[str]:
 
 
 def unix_tool_exec(
-    cmdname: str, inherit_params: bool = True, cwd: Optional[str] = None
+    cmdname: str,
+    inherit_params: bool = True,
+    cwd: Optional[str] = None,
+    env: Optional[dict] = None,
 ) -> int:
     """Executes the given Unix tool."""
     try:
         cmd = get_or_fetch_unix_tool_path(cmdname)
         if not cmd:
             raise FileNotFoundError(f"Could not find {cmdname} in PATH or in {GIT_BIN}")
-        return os_exec(cmd, inherit_params, cwd)
+        extra_args = {}
+        if env:
+            prev_env = dict(os.environ)
+            prev_env.update(env)
+            extra_args["env"] = prev_env
+        return os_exec(cmd, inherit_params, cwd, **extra_args)
     except KeyboardInterrupt:
         print("Ctrl-c pressed, exiting...")
         return 1
