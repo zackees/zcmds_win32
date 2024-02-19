@@ -51,6 +51,7 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 
 # Release Notes
+  * 1.2.19: `python3` and `pip3` now map to `python` and `pip`
   * 1.2.18: Better `bash`, which now paths the default git-bash `/usr/bin``
   * 1.2.17: Added `date`
   * 1.2.16: `open` now accepts double back slashes.
