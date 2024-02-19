@@ -20,7 +20,7 @@ license = { text = "BSD 3-Clause License" }
 classifiers = ["Programming Language :: Python :: 3"]
 dependencies = ["sudo_win32[sudo]", "download"]
 # Change this with the version number bump.
-version = "1.2.18"
+version = "1.2.19"
 
 
 [tool.pylint.'MESSAGES CONTROL']
@@ -68,3 +68,5 @@ dirname = "zcmds_win32.cmds.dirname:main"
 uname = "zcmds_win32.cmds.uname:main"
 realpath = "zcmds_win32.cmds.realpath:main"
 date = "zcmds_win32.cmds.date:main"
+python3 = "zcmds_win32.cmds.python3:main"
+pip3 = "zcmds_win32.cmds.pip3:main"
