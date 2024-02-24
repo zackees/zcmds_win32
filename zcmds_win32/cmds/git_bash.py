@@ -7,7 +7,8 @@ CMDNAME = "bash.exe"
 GIT_BIN = r"C:\Program Files\Git\usr\bin"
 
 ENV = os.environ.copy()
-ENV["PATH"] = f"{GIT_BIN};{ENV['PATH']}"
+OS_PATH_SEP = os.pathsep
+ENV["PATH"] = f"{GIT_BIN}{OS_PATH_SEP}{ENV['PATH']}"
 os.environ.update(ENV)
 
 
