@@ -70,3 +70,7 @@ realpath = "zcmds_win32.cmds.realpath:main"
 date = "zcmds_win32.cmds.date:main"
 python3 = "zcmds_win32.cmds.python3:main"
 pip3 = "zcmds_win32.cmds.pip3:main"
+basename = "zcmds_win32.cmds.basename:main"
+# can't use [ because of toml parsing rules
+arch = "zcmds_win32.cmds.arch:main"
+awk = "zcmds_win32.cmds.awk:main"
