@@ -51,7 +51,7 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 
 # Release Notes
-  * 1.2.25: Adds missing dll files that aren't found coincidentally on some systems.
+  * 1.2.26: Adds missing dll files that aren't found coincidentally on some systems.
   * 1.2.24: Includes the tools in 1.2.21 for use.
   * 1.2.21: `basename`, `awk` and `[` for compatibility.
   * 1.2.19: `python3` and `pip3` now map to `python` and `pip`
