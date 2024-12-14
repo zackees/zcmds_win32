@@ -117,6 +117,7 @@ def _has_text_encoding(file: str) -> bool:
                 f.read().decode(encoding)
             return True
         except UnicodeDecodeError:
+            print(f"Failed to decode {file} with {encoding}.")
             pass
     return False
 
@@ -129,7 +130,7 @@ def handle_file(file: str, force_text=False) -> tuple[bool, int]:
         force_text
         or ext.lower() in TEXT_EXTENSIONS
         or ext.lower() == ""
-        and file_uses_text_encoding
+        or file_uses_text_encoding
     ):
         if TEXT_EDITOR:
             # empty quotes is for title.
