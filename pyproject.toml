@@ -6,7 +6,7 @@ build-backend = "setuptools.build_meta"
 name = "zcmds_win32"
 description = "Cross platform(ish) productivity commands written in python."
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.10"
 keywords = [
     "zcmds",
     "win32",
@@ -20,7 +20,7 @@ license = { text = "BSD 3-Clause License" }
 classifiers = ["Programming Language :: Python :: 3"]
 dependencies = ["sudo_win32[sudo]", "download"]
 # Change this with the version number bump.
-version = "1.2.26"
+version = "1.2.27"
 
 
 [tool.pylint.'MESSAGES CONTROL']
