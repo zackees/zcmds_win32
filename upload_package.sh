@@ -1,7 +1,21 @@
 #twine upload -r testpypi dist/* --verbose
-rm -rf build dist
-echo "Building Source and Wheel (universal) distribution…"
-python setup.py sdist bdist_wheel --universal
-echo "Uploading the package to PyPI via Twine…"
-twine upload dist/* --verbose
-# echo Pushing git tags…
+set -e
+set -x
+
+# Clean previous builds
+echo "Cleaning previous builds..."
+rm -rf build/ dist/ *.egg-info/
+
+# Ensure latest build tools
+echo "Updating build tools..."
+python -m pip install --upgrade pip build twine wheel
+
+# Build the package
+echo "Building Source and Wheel distribution..."
+python -m build
+
+# Upload to PyPI
+echo "Uploading the package to PyPI..."
+python -m twine upload dist/* --verbose
+
+echo "Package upload complete!"
