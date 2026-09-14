@@ -663,7 +663,7 @@ wheels = [
 
 [[package]]
 name = "zcmds-win32"
-version = "1.2.29"
+version = "1.2.31"
 source = { editable = "." }
 dependencies = [
     { name = "download" },
