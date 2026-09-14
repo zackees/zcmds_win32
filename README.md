@@ -21,6 +21,8 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
   * mv
   * nano
   * pico
+  * printenv
+    * Prints environment variables sorted, with `PATH` listed one entry per line.
   * ps
   * open
   * rm
@@ -51,6 +53,7 @@ use things like `tee`, `grep` and unix commands and have it work on windows.
 
 
 # Release Notes
+  * 1.2.31: Adds `printenv` (moved from `zcmds`, which no longer installs it on Linux/macOS where it shadowed coreutils).
   * 1.2.26: Adds missing dll files that aren't found coincidentally on some systems.
   * 1.2.24: Includes the tools in 1.2.21 for use.
   * 1.2.21: `basename`, `awk` and `[` for compatibility.
