@@ -16,7 +16,7 @@ Build / install / test all rely on `uv`. Tests target Python 3.10 on Windows onl
 - `bash lint` — runs `isort --profile black`, `black`, `pylint`, `mypy` against the `zcmds_win32` package (all via `uv run`).
 - `uv run pytest tests` — run the full test suite. Single test: `uv run pytest tests/test_main.py::MainTester::test_ls`.
 - `tox` — runs flake8 + pylint + mypy + pytest per `tox.ini` (py310 only).
-- `bash upload_package.sh` — builds wheel and uploads to PyPI via twine. Bump `version` in `pyproject.toml` first.
+- Releasing — bump `version` in `pyproject.toml` and merge to `main`. `.github/workflows/auto-release.yml` ("Auto Release") publishes to PyPI via Trusted Publishing (environment `pypi`) and creates the `v<version>` tag and GitHub Release. Recovery: run the workflow manually with dry-run unchecked.
 - `zcmds_win32 --install` — force re-download of the Git-for-Windows binary bundle into `zcmds_win32/git-bash-bin/`.
 
 ## Architecture
@@ -33,7 +33,7 @@ When editing or adding a command, pick the pattern that matches how the tool is 
 
 2. **Standalone bundled tools** (`dig`, ...) — call `get_or_fetch_tool(toolname, tooldir, url)` from `zcmds_win32/install_tool.py`, then `os_exec(path)`. The tool is downloaded once into `zcmds_win32/downloads/<name>/`. See `cmds/dig.py` for the canonical template.
 
-3. **Custom logic** (`open`, `home`, `fixvmmem`, `zcmds_win32`) — pure Python. `open` inspects the target's extension and encoding to decide between a text editor (Sublime → TextPad → Notepad), `explorer` for images, or `explorer` for directories; it also translates git-bash `/c/...` paths to `C:\...`. `fixvmmem` uses `sudo_win32.elevated_exec` to UAC-elevate a `taskkill` of `wslservice.exe`.
+3. **Custom logic** (`home`, `fixvmmem`, `zcmds_win32`, `printenv`) — pure Python. `open` is not provided here; `zcmds` owns it. `fixvmmem` uses `sudo_win32.elevated_exec` to UAC-elevate a `taskkill` of `wslservice.exe`.
 
 ### `os_exec` semantics
 
@@ -48,4 +48,4 @@ When editing or adding a command, pick the pattern that matches how the tool is 
 - Python 3.10+, formatted with `black` + `isort --profile black`.
 - Pylint config in `pyproject.toml` disables `missing-module-docstring` and `missing-function-docstring`; flake8 ignores E501/E203/W503 (`tox.ini`).
 - Commands should be tiny — match the existing one-screen pattern. Don't add argument parsing on top of `unix_tool_exec`; the real binary already handles its own flags.
-- The version in `pyproject.toml` must be bumped before `upload_package.sh`. Release notes go in `README.md`.
+- Bumping the version in `pyproject.toml` on `main` is what triggers a release. Release notes go in `README.md`.
