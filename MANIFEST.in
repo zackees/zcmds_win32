@@ -1,1 +1,1 @@
-exclude assets/*
+prune assets
